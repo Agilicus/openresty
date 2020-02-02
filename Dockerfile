@@ -12,7 +12,7 @@ RUN \
     echo deb http://openresty.org/package/ubuntu bionic main | tee -a /etc/apt/sources.list && \
     apt-get update && \
     apt-get -y install openresty && \
-    opm get hamishforbes/lua-resty-iputils p0pr0ck5/lua-resty-cookie p0pr0ck5/lua-ffi-libinjection p0pr0ck5/lua-resty-logger-socket && \
+    opm get hamishforbes/lua-resty-iputils p0pr0ck5/lua-resty-cookie p0pr0ck5/lua-ffi-libinjection p0pr0ck5/lua-resty-logger-socket ledgetech/lua-resty-http cdbattags/lua-resty-jwt && \
     mkdir -p /src && \
     cd /src && \
     git clone https://github.com/p0pr0ck5/lua-resty-waf && \
