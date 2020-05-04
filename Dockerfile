@@ -1,10 +1,11 @@
-FROM ubuntu:18.04 as build
+FROM ubuntu:20.04 as build
 LABEL maintainer="don@agilicus.com"
  
 # This scary-looking variable only causes apt-key to not warn on the
 # output not being stdout (output should not be parsed).
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
- 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN \
     apt-get update && \
     apt-get install -y wget gnupg2 libpcre3-dev git luarocks python build-essential && \
@@ -23,7 +24,7 @@ RUN \
     make && \
     make install
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 RUN \
     apt-get update && \
     apt-get install -y wget gnupg2 libpcre3 && \
